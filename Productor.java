@@ -70,16 +70,13 @@ class Productor
         }
     }
 
-    public Vector leer()
+    public Vector leer(String nombre)
     {
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
         Vector<Integer> ndigitos=new Vector<Integer>();
         Scanner input =new Scanner (System.in);
-
-        System.out.println("Ingrese nombre del Archivo: ");
-        String nombre = input.nextLine();
 
         try 
         {
