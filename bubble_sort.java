@@ -30,18 +30,17 @@ public class Bubble_Sort {
             arr[i] = vector.elementAt(i);
         }
         int n = arr.length;
-        long startTime = System.nanoTime();
         System.out.printf("El arreglo dado es: \n");
         printArray(arr, n);
-        System.out.println();  
-
-        bubbleSort(arr);
-
-        System.out.println("\nnEl arreglo ordenado es: ");  
-        for(int i=0; i < arr.length; i++){  
-            System.out.print(arr[i] + " ");  
-        }  
-        long endTime = System.nanoTime();
-        System.out.println("\n" + (endTime-startTime)/1e9 + " segundos");
+        long startTime;
+        long endTime;
+        for (int i = 0 ; i < 10 ; i++ ) {
+            startTime = System.nanoTime();
+            bubbleSort(arr);
+            System.out.println("\nnEl arreglo ordenado es: ");  
+            printArray(arr, n);
+            endTime = System.nanoTime();
+            System.out.println("\n" + (endTime-startTime)/1e9 + " segundos");
+        }
     }
 }

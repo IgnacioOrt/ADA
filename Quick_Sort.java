@@ -88,16 +88,20 @@ class Quick_Sort
         }
         
         int n = arr.length; 
-        long startTime = System.nanoTime();
+        
         System.out.printf("El arreglo dado es: \n"); 
         printArray(arr, n); 
-          
-        // Function calling 
-        quickSortIterative(arr, 0, n-1); 
-          
-        System.out.printf("\nEl arreglo ordenado es: \n"); 
-        printArray(arr, n); 
-        long endTime = System.nanoTime();
-        System.out.println((endTime-startTime)/1e9);
+        long startTime;
+        long endTime;
+        for (int i = 0 ; i < 10 ; i++ ) {
+            startTime = System.nanoTime();
+            // Function calling
+            quickSortIterative(arr, 0, n-1); 
+            System.out.printf("\nEl arreglo ordenado es: \n"); 
+            printArray(arr, n);
+            endTime = System.nanoTime();
+            System.out.println((endTime-startTime)/1e9);   
+        }
+        
     } 
 } 
