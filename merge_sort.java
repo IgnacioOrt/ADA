@@ -129,12 +129,12 @@ class merge_sort {
         
         int n = arr.length; 
         long startTime = System.nanoTime();
-        System.out.printf("Given array is \n"); 
+        System.out.printf("El arreglo dado es: \n"); 
         printArray(arr, n); 
         
         mergeSort(arr, n); 
         
-        System.out.printf("\nSorted array is \n"); 
+        System.out.printf("\nEl arreglo ordenado es: \n"); 
         printArray(arr, n); 
         long endTime = System.nanoTime();
         System.out.println((endTime-startTime)/1e9);
