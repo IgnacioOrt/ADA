@@ -1,5 +1,5 @@
 import java.util.*;
-public class Bubble_Sort {
+public class bubble_sort {
     static void bubbleSort(int[] arr) {
         int n = arr.length;
         int temp = 0;
