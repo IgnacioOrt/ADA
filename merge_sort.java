@@ -120,8 +120,6 @@ class merge_sort {
     public static void main(String[] args) 
     { 
         Productor p = new Productor();
-
-        p.generar();
         Vector<Integer> vector = new Vector<Integer>();
         vector = p.leer();
         int arr[] = new int[vector.size()]; 
