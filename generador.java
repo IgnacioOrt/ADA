@@ -29,8 +29,8 @@ class generador{
 	}
 	public void leer(){
 		File archivo = null;
-      	FileReader fr = null;
-      	BufferedReader br = null;
+      FileReader fr = null;
+      BufferedReader br = null;
 		try {
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).
