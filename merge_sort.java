@@ -1,5 +1,6 @@
 import java.lang.Math.*; 
-  
+import java.io.*;
+import java.util.*;
 class merge_sort { 
   
     /* Iterative mergesort function to sor 
@@ -118,8 +119,16 @@ class merge_sort {
     /* Driver program to test above functions */
     public static void main(String[] args) 
     { 
+        Productor p = new Productor();
+
+        p.generar();
+        Vector<Integer> vector = new Vector<Integer>();
+        vector = p.leer();
+        int arr[] = new int[vector.size()]; 
+        for (int i = 0; i < vector.size() ; i++ ) {
+            arr[i] = vector.elementAt(i);
+        }
         
-        int arr[] = {12, 11, 13, 5, 6, 7}; 
         int n = arr.length; 
         long startTime = System.nanoTime();
         System.out.printf("Given array is \n"); 

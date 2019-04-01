@@ -2,15 +2,41 @@ import java.util.Random;
 import java.util.*;
 import java.io.*;
 
-public class Productor
+class Productor
 {
-    public static void escribir(int[] array)
+    public Productor()
+    {
+
+    }
+    public void generar(){
+        Random rnd = new Random();
+        Scanner input =new Scanner (System.in);
+
+        System.out.println("Ingrese nombre del Archivo: ");
+        String archivo = input.nextLine();
+        System.out.println("Ingrese numero de Datos: ");
+        int numero = input.nextInt();
+
+        
+        int ndigitos[] = new int[numero]; 
+
+// verificar que los números aleatorios están uniformente distribuídos
+        for (int i=0; i < numero; i++) 
+        {
+            // genera un número aleatorio entre 0 y 9
+            ndigitos[i] = rnd.nextInt(100-0)+0;
+
+            System.out.println(ndigitos[i]+"\n");
+        }
+        escribir(ndigitos, archivo + ".txt");
+    }
+    public void escribir(int[] array, String nombre)
     {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("archivo.txt");
+            fichero = new FileWriter(nombre);
             pw = new PrintWriter(fichero);
 
             for (int i = 0; i < array.length; i++)
@@ -48,23 +74,34 @@ public class Productor
     }
 
 
-    public static void leer()
+    public Vector leer()
     {
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
+        Vector<Integer> ndigitos=new Vector<Integer>();
+        Scanner input =new Scanner (System.in);
+
+        System.out.println("Ingrese nombre del Archivo: ");
+        String nombre = input.nextLine();
+
         try 
         {
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).
-            archivo = new File ("archivo.txt");
+            archivo = new File (nombre + ".txt");
             fr = new FileReader (archivo);
             br = new BufferedReader(fr);
 
          // Lectura del fichero
             String linea;
             while((linea=br.readLine())!=null)
+            {
                 System.out.println("Leido: "+linea);
+                ndigitos.addElement( Integer.parseInt(linea));
+
+            }
+
         }
         catch(Exception e)
         {
@@ -87,38 +124,13 @@ public class Productor
                 e2.printStackTrace();
             }
         }
+        return ndigitos;
     }
 
-  public static void main (String[] args) 
-  {
-    int n;  
-    Random rnd = new Random();
-    Scanner input =new Scanner (System.in);
 
-
-    System.out.println("Ingrese numero de Datos: "); 
-    int numero = input.nextInt();
-    long startTime = System.nanoTime();
-
-    int ndigitos[] = new int[numero]; 
-
-// verificar que los números aleatorios están uniformente distribuídos
-        for (int i=0; i < numero; i++) 
-        {
-            // genera un número aleatorio entre 0 y 9
-            n = rnd.nextInt(100-0)+0;
-            ndigitos[i] = n;
-
-            System.out.println(n+"\n");
-        }
+    /*
         long endTime = System.nanoTime();
         System.out.println("Tardó "+(endTime-startTime)/1e9+" segundos");
-        System.out.println("\n");
+        System.out.println("\n");*/
 
-        escribir(ndigitos);
-        leer();
-
-
-        // imprime los resultados
-    }
 }
