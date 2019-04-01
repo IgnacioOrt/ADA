@@ -114,7 +114,7 @@ class merge_sort {
         for (i=0; i < size; i++) 
             System.out.printf("%d ", A[i]); 
         System.out.printf("\n"); 
-    } 
+    }
       
     /* Driver program to test above functions */
     public static void main(String[] args) 
