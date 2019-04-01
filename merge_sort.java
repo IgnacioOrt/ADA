@@ -1,7 +1,7 @@
 import java.lang.Math.*; 
 import java.io.*;
 import java.util.*;
-class merge_sort { 
+class Merge_Sort { 
   
     /* Iterative mergesort function to sor 
     t arr[0...n-1] */

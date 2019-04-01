@@ -3,18 +3,17 @@ import java.io.*;
 import java.util.*;
 
 class Comb_Sort 
-{ 
-  
+{
     /* Function to merge the two haves arr[l..m] and 
     arr[m+1..r] of array arr[] */
     static void combsort(int arr[], int n) 
-    { 
-        int gap = arr.length; 
+    {
+        int gap = arr.length;
         double factor = 1.3;
         // Initialize swapped as true to make sure that 
         // loop runs 
-        boolean swapped = false; 
-  
+        boolean swapped = false;
+
         // Keep running while gap is more than 1 and last 
         // iteration caused a swap 
         while (gap > 1 || swapped == true) 

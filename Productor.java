@@ -16,11 +16,8 @@ class Productor
         String archivo = input.nextLine();
         System.out.println("Ingrese numero de Datos: ");
         int numero = input.nextInt();
-
-        
-        int ndigitos[] = new int[numero]; 
-
-// verificar que los números aleatorios están uniformente distribuídos
+        int ndigitos[] = new int[numero];
+        // verificar que los números aleatorios están uniformente distribuídos
         for (int i=0; i < numero; i++) 
         {
             // genera un número aleatorio entre 0 y 9
@@ -73,7 +70,6 @@ class Productor
         }
     }
 
-
     public Vector leer()
     {
         File archivo = null;
@@ -87,50 +83,44 @@ class Productor
 
         try 
         {
-         // Apertura del fichero y creacion de BufferedReader para poder
-         // hacer una lectura comoda (disponer del metodo readLine()).
+            // Apertura del fichero y creacion de BufferedReader para poder
+            // hacer una lectura comoda (disponer del metodo readLine()).
             archivo = new File (nombre + ".txt");
             fr = new FileReader (archivo);
             br = new BufferedReader(fr);
-
-         // Lectura del fichero
+            // Lectura del fichero
             String linea;
             while((linea=br.readLine())!=null)
             {
                 System.out.println("Leido: "+linea);
                 ndigitos.addElement( Integer.parseInt(linea));
-
             }
-
         }
         catch(Exception e)
         {
-         e.printStackTrace();
+            e.printStackTrace();
         }
         finally
         {
-         // En el finally cerramos el fichero, para asegurarnos
-         // que se cierra tanto si todo va bien como si salta 
-         // una excepcion.
+            // En el finally cerramos el fichero, para asegurarnos
+            // que se cierra tanto si todo va bien como si salta 
+            // una excepcion.
             try
-            {                    
+            {
                 if( null != fr )
-                {   
-                    fr.close();     
-                }                  
+                {
+                    fr.close();
+                }
             }
             catch (Exception e2)
-            { 
+            {
                 e2.printStackTrace();
             }
         }
         return ndigitos;
     }
-
-
     /*
         long endTime = System.nanoTime();
         System.out.println("Tardó "+(endTime-startTime)/1e9+" segundos");
         System.out.println("\n");*/
-
 }
