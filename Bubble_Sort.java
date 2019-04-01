@@ -44,8 +44,12 @@ public class Bubble_Sort {
         for (int j = 0; j < archivos.length ; j++ ) {
             
             for (int i = 0 ; i < 10 ; i++ ) {
+
                 arr = cargarArchivo(archivos[j]);
+
                 startTime = System.nanoTime();
+                System.out.printf("El arreglo dado es: \n"); 
+                printArray(arr); 
                 bubbleSort(arr);
                 System.out.println("\nnEl arreglo ordenado es: ");  
                 printArray(arr);
