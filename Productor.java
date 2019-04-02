@@ -21,7 +21,7 @@ class Productor
         for (int i=0; i < numero; i++) 
         {
             // genera un número aleatorio entre 0 y 9
-            ndigitos[i] = rnd.nextInt(1000000-0)+0;
+            ndigitos[i] = rnd.nextInt();
 
             System.out.println(ndigitos[i]+"\n");
         }
