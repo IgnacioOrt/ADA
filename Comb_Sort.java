@@ -64,15 +64,15 @@ class Comb_Sort
 
         
         int n = arr.length; 
-        long startTime = System.nanoTime();
+        
         System.out.printf("El arreglo dado es: \n"); 
         printArray(arr, n); 
-        
+        long startTime = System.nanoTime();
         combsort(arr, n); 
-        
+        long endTime = System.nanoTime();
         System.out.printf("\nEl arreglo ordenado es: \n"); 
         printArray(arr, n); 
-        long endTime = System.nanoTime();
+        
         System.out.println((endTime-startTime)/1e9);
     } 
 } 

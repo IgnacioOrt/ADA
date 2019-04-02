@@ -1,5 +1,5 @@
 import java.util.*;
-public class bubble_sort {
+public class Bubble_Sort {
     static void bubbleSort(int[] arr) {
         int n = arr.length;
         int temp = 0;
@@ -30,18 +30,17 @@ public class bubble_sort {
             arr[i] = vector.elementAt(i);
         }
         int n = arr.length;
-        long startTime = System.nanoTime();
+        
         System.out.printf("El arreglo dado es: \n");
         printArray(arr, n);
         System.out.println();  
-
+        long startTime = System.nanoTime();
         bubbleSort(arr);
-
+        long endTime = System.nanoTime();
         System.out.println("\nnEl arreglo ordenado es: ");  
         for(int i=0; i < arr.length; i++){  
             System.out.print(arr[i] + " ");  
-        }  
-        long endTime = System.nanoTime();
+        }
         System.out.println("\n" + (endTime-startTime)/1e9 + " segundos");
     }
 }
