@@ -31,16 +31,14 @@ public class Bubble_Sort {
         }
         int n = arr.length;
         
-        System.out.printf("El arreglo dado es: \n");
-        printArray(arr, n);
+        /*System.out.printf("El arreglo dado es: \n");
+        printArray(arr, n);*/
         System.out.println();  
         long startTime = System.nanoTime();
         bubbleSort(arr);
         long endTime = System.nanoTime();
-        System.out.println("\nnEl arreglo ordenado es: ");  
-        for(int i=0; i < arr.length; i++){  
-            System.out.print(arr[i] + " ");  
-        }
+        /*System.out.println("\nnEl arreglo ordenado es: ");  
+        printArray(arr, n);*/
         System.out.println("\n" + (endTime-startTime)/1e9 + " segundos");
     }
 }
