@@ -121,7 +121,7 @@ class Merge_Sort {
     { 
         Productor p = new Productor();
         Vector<Integer> vector = new Vector<Integer>();
-        vector = p.leer();
+        vector = p.leer(args[0]);
         int arr[] = new int[vector.size()]; 
         for (int i = 0; i < vector.size() ; i++ ) {
             arr[i] = vector.elementAt(i);
