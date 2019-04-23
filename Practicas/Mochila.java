@@ -26,7 +26,7 @@ public class Mochila
         System.out.println("Ingrese el Peso Total que puede llevar la mochila (de 50 a 100): ");
         int pesoMochila = input.nextInt();
 
-      	while(pesoMochila < 50 || pesoMochila > 100 )
+      	while(pesoMochila <= 0 || pesoMochila > 100 )
         {
         		System.out.println("\nERROR!!! ");
         		System.out.println("La Cantidad de Peso tiene que ser mayor a 50 (Cincuenta) y menor que 100 (Cien)");
@@ -109,14 +109,17 @@ public class Mochila
        			}
        			else
        			{
-       				double x = getInfoValueNumeric((pesoMochila-pesof)/pesos[a]);
+       				double x = (pesoMochila-pesof)/pesos[a];
        				solucion[a] = (float) x;
        				pesof = pesoMochila;
        			}
 
+       			//System.out.println("\nVector Solucion: "+solucion[a]+", ");
        			System.out.println((a+1)+" |  "+valores[a]+"  |  "+pesos[a]+"  |  "+solucion[a]+"  | "+pesof+" \n");
        			b++;
        		}
+
+       		
 
     }
 }
