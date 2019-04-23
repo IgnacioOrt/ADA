@@ -2,6 +2,7 @@ import java.util.*;
 class monedas
 {
 	public int denominaciones[];
+	public int cantidad[];
 	public int cambio[];
 	public monedas(int m[], int n[])
 	{
@@ -11,6 +12,7 @@ class monedas
 	{
 		denominaciones = new int[tam];
 		cambio = new int[tam];
+		cantidad = new int[tam];
 	}
 	public void leerMonedas()
 	{
@@ -18,7 +20,18 @@ class monedas
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < denominaciones.length; i++)
 		{
+			System.out.print("\nDenominacion moneda " + (i+ 1) + ": " );
 			denominaciones[i] = sc.nextInt();
+			System.out.print("\nCantidad de monedas " + (i + 1) +": ");
+			cantidad[i] = sc.nextInt();
+		}
+		invertirCantidades();
+	}
+	public void escribirCantidades()
+	{
+		for (int i = 0 ; i < cantidad.length; i++)
+		{
+			System.out.print(" " + cantidad[i]);
 		}
 	}
 	public void escribirDenominaciones()
@@ -38,19 +51,27 @@ class monedas
 	public int calcularCambio(int cant)
 	{
 		int i = this.denominaciones.length - 1;
+		int temp;
 		while ( cant != 0) 
 		{
-			System.out.println(i);
-			cambio[i] = cant / denominaciones[i];
-			cant = cant % denominaciones[i];
-			if (cant < denominaciones[0])
+			System.out.println(i + " " + cant);
+			temp = cant / denominaciones[i];
+			if (cantidad[i] >= temp) {
+				cambio[i] = cant / denominaciones[i];
+				cant = cant % denominaciones[i];
+			}else{
+				System.out.println("Entro con "  + temp);
+				cambio[i] = cantidad[i];
+				System.out.println((denominaciones[i] * cantidad[i]));
+				cant =  (cant - (denominaciones[i] * cantidad[i]));
+			}
+			if ((cant < denominaciones[0]) || i == 0 )
 			{
 				break;
 			}else
 			{
 				i--;
 			}
-			
 		}
 		return cant;
 	}
@@ -70,6 +91,20 @@ class monedas
                 }
             }
         }
+	}
+	public void invertirCantidades()
+	{
+		int[] temp = new int[cantidad.length];
+		for (int i = 0; i < cantidad.length ; i++) {
+			temp[i] = cantidad[i];
+		}
+		int j = cantidad.length - 1;
+		for (int i = 0;	i <  cantidad.length; i++ ) {
+			System.out.println(i + " " + j);
+			cantidad[i] = temp[j];
+			j--;
+		}
+		
 	}
 	public int verifMayorValor(int cant)
 	{
@@ -94,6 +129,8 @@ class monedas
 			m.ordenar();
 			System.out.print("\nLas monedas ingresadas son: ");
 			m.escribirDenominaciones();
+			System.out.print("\nNumero de monedas por denominacion: ");
+			m.escribirCantidades();
 			System.out.print("\nIngrese la cantidad para pagar: ");
 			cant = sc.nextInt();
 			if (m.verifMayorValor(cant) == 1)
