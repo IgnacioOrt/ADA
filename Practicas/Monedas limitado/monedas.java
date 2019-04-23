@@ -54,15 +54,12 @@ class monedas
 		int temp;
 		while ( cant != 0) 
 		{
-			System.out.println(i + " " + cant);
 			temp = cant / denominaciones[i];
 			if (cantidad[i] >= temp) {
 				cambio[i] = cant / denominaciones[i];
 				cant = cant % denominaciones[i];
 			}else{
-				System.out.println("Entro con "  + temp);
 				cambio[i] = cantidad[i];
-				System.out.println((denominaciones[i] * cantidad[i]));
 				cant =  (cant - (denominaciones[i] * cantidad[i]));
 			}
 			if ((cant < denominaciones[0]) || i == 0 )
@@ -100,7 +97,6 @@ class monedas
 		}
 		int j = cantidad.length - 1;
 		for (int i = 0;	i <  cantidad.length; i++ ) {
-			System.out.println(i + " " + j);
 			cantidad[i] = temp[j];
 			j--;
 		}
