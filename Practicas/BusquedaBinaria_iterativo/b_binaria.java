@@ -119,6 +119,6 @@ class b_binaria
 		if (posicion > -1)
 			System.out.println("\nElemento encontrado en el arreglo en la posicion "+(posicion+1));
 		else
-			System.out.println("No se ha encontrado el dato");
+			System.out.println("\nNo se ha encontrado el dato");
 	}
 }
