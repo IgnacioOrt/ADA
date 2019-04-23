@@ -113,6 +113,7 @@ class monedas
 	}
 	public static void main(String[] args) 
 	{
+		System.out.println("Monedas ilimitado");
 		int tam;
 		int cant;
 		Scanner sc = new Scanner(System.in);
@@ -133,7 +134,7 @@ class monedas
 			{
 				int cambio = m.calcularCambio(cant);
 				if (cambio == 0) {
-					System.out.print("\nCambio: ");
+					System.out.println("\nCambio: ");
 					m.escribirCambio();	
 				}else{
 					System.out.print("\nNo se puede dar cambio completo con las denominaciones dadas faltan $" + cambio);

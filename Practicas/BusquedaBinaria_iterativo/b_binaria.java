@@ -63,38 +63,33 @@ class b_binaria
             }
         }
     }
-    static boolean buscar (int dato, int arr[])
+    static int buscar (int dato, int arr[])
     {
-    	boolean band = false;
-    	int bajo = 0;
-    	int medio;
-    	int alto = arr.length - 1;
-    	do
-    	{
-    		medio = (alto + bajo)/2;
-    		if (dato < arr[medio])
-    		{
-    			alto = medio;
-    		}
-    		else
-    		{
-    			if (dato > arr[medio])
-    			{
-    				bajo = medio;
-    			}
-    			else
-    			{
-    				band = true;
-    			}
-    		}
-    	} while ( (!band) && (bajo != alto - 1));
-    	return band;
+    	int inicio = 0;
+        int fin = arr.length - 1;
+        int pos = 0;
+        while (inicio <= fin) 
+        {
+            pos = (inicio+fin) / 2;
+            if ( arr[pos] == dato )
+                return pos;
+            else if ( arr[pos] < dato ) 
+            {
+                inicio = pos+1;
+            } 
+            else 
+            {
+                fin = pos-1;
+            }
+        }
+            return -1;
     }
 	public static void main(String[] args)
 	{
+		System.out.println("Busqueda binaria interativo");
 		Scanner sc = new Scanner(System.in);
 		int n, dato;
-		System.out.print("Da el tamaño del arreglo: ");
+		System.out.print("Da el tamano del arreglo: ");
 		n = sc.nextInt();
 		int [] arr = new int[n];
 		System.out.println("Introduce los datos del arreglo");
@@ -106,8 +101,9 @@ class b_binaria
 		quickSortIterative(arr, 0, n-1); 	
 		System.out.println("Ingresa el dato a buscar en el arreglo: ");
 		dato = sc.nextInt();
-		if (buscar(dato,arr))
-			System.out.println("Elemento encontrado en el arreglo");
+		int pos = buscar(dato,arr);
+		if (pos > -1)
+			System.out.println("Elemento encontrado en el arreglo en la posicion: " + pos);
 		else
 			System.out.println("No se ha encontrado el dato");
 	}

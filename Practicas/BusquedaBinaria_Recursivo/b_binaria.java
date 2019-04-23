@@ -1,5 +1,5 @@
 import java.util.*;
-class b_Rec
+class b_binaria
 {
 	static void escribirArreglo(int arr[])
 	{
@@ -91,6 +91,7 @@ class b_Rec
 
 	public static void main(String[] args)
 	{
+        System.out.println("Busqueda binaria recursivo");
 		Scanner sc = new Scanner(System.in);
 		int n, dato;
 		System.out.print("Da el tamano del arreglo: ");
@@ -105,7 +106,14 @@ class b_Rec
 		quickSortIterative(arr, 0, n-1); 	
 		System.out.println("Ingresa el dato a buscar en el arreglo: ");
 		dato = sc.nextInt();
-        int indiceDelElementoBuscado = busquedaBinariaRecursiva(arr, dato, 0, arr.length - 1);
-		System.out.println("[Recursivo] -- El elemento buscado (" + String.valueOf(dato) + ") se encuentra en el index " + indiceDelElementoBuscado);
+        int posicion = busquedaBinariaRecursiva(arr, dato, 0, arr.length - 1);
+        if (posicion > -1)
+        {
+            System.out.println("El dato se encontro en el arreglo en la posicion: " + posicion);    
+        }else
+        {
+            System.out.println("No se encontro en el arreglo");    
+        }
+		
 	}
 }
