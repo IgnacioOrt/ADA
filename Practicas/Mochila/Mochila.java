@@ -6,12 +6,6 @@ public class Mochila
     {
       	Scanner input =new Scanner (System.in);
       	double pesof = 0;
-
-        System.out.println("********************************");
-        System.out.println("********Programa Mochila********");
-        System.out.println("********************************\n");
-
-
         System.out.println("Ingrese Cantidad Total de Objetos:");
         int totalObjetos = input.nextInt();
 
