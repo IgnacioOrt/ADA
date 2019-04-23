@@ -106,6 +106,6 @@ class b_Rec
 		System.out.println("Ingresa el dato a buscar en el arreglo: ");
 		dato = sc.nextInt();
         int indiceDelElementoBuscado = busquedaBinariaRecursiva(arr, dato, 0, arr.length - 1);
-		System.out.println("[Recursivo] -- El elemento buscado (" + String.valueOf(dato) + ") se encuentra en el index " + indiceDelElementoBuscado);
+		System.out.println("El elemento buscado (" + String.valueOf(dato) + ") se encuentra en la posicion " + indiceDelElementoBuscado);
 	}
 }
