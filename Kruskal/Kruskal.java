@@ -5,6 +5,7 @@ public class Kruskal
 {	
 
 	int[] raiz;
+
 	public Kruskal(int tam)
 	{
 		raiz = new int[tam];
@@ -18,9 +19,9 @@ public class Kruskal
 		}
 	}
 
-	public boolean ComparaRaices(int nodoActual, int nodoFuturo)
+	public boolean ComparaRaices(int vertice1, int vertice2)
 	{
-		if( BuscarRaiz( nodoActual, nodoFuturo ))
+		if( BuscarRaiz(vertice1) == BuscarRaiz(vertice2))
 		{
 			return true;
 		}
@@ -31,40 +32,59 @@ public class Kruskal
 		}
 	}
 
-	public int BuscarRaiz(int nodoActual)
+	public int BuscarRaiz(int vertice1)
 	{
-		if( nodoActual == raiz[nodoActual] )
+		if( vertice1 == raiz[vertice1] )
 		{
 			return actual;
 		}
 		else
 		{
-			return raiz[nodoActual] = Find(raiz[nodoActual]);
+			return raiz[vertice1] = BuscarRaiz(raiz[vertice1]);
 		}
 	}
 
-	public void Unir(int nodoActual, int nodoFuturo)
+	public void Unir(int vertice1, int vertice2)
 	{
-		int raizX = BuscarRaiz( nodoActual );
-		int raizY = BuscarRaiz( nodoFuturo );
-		raiz[ raizX ] = raizY;
+		raiz[BuscarRaiz(vertice1)] = BuscarRaiz(vertice2); 
 	}
 
 	public void kruskal()
 	{
 		int vertice1, vertice2;
-		int totalAristas= 0;
-		int total = 0;
+		int numAristas= 0;
+		int totalpeso = 0;
 		
 		inicializar( vertices );//Inicializar cada Elemento(Nodo)
 
 		for (int i = 0; i < aristas; i++) //Recorrer las aristas ordenadas por Peso
 		{
-			vertice1 = 
+			vertice1 = arista[i].vertice1;
+			vertice2 = arista[i].vertice2;
+			peso = arista[i].peso;
+
+			if(!ComparaRaices(vertice1, vertice2))
+			{
+				totalpeso += peso; //Incrementa el peso Total del Resultado Final
+				Unir(vertice1,vertice2);
+
+			}
 		}
 
+		if( totalAristas- 1 != numAristas ) //NOMBRE DE LA VARIABLE??????
+		{
+	        System.out.println("\nERROR: No existe Solución válida para el grafo ingresado.");
+	        return;
+		}
 
+		System.out.println("La Solución Encontrada es: \n");
 
+		for( int i = 0 ; i < numAristas ; ++i )
+		{
+	        System.out.printf("( %d , %d ) : %d\n" , ??[ i ].vertice1 , ??[ i ].vertice2 , ??[ i ].peso ); //Impresión de la Solución
+		}
+
+		System.out.printf( "El costo minimo de la Solución al Grafo es : %d\n" , totalpeso);
 	}
 
 	public void creaAristas()
