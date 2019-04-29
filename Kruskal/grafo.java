@@ -77,10 +77,13 @@ class grafo
 
  	}
 
- 	public getSize(){
+ 	public int getSize(){
  		return NN;
  	}
 
+ 	public int[][] getMatriz(){
+ 		return M;
+ 	}
  	public static void main(String[] ar)
  	{
  		grafo G=new grafo();

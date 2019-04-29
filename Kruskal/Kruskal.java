@@ -5,9 +5,11 @@ public class Kruskal
 {	
 
 	int[] raiz;
+	arista[] aristas;
 
 	public Kruskal(int tam)
 	{
+		aristas = new arista[tam];
 		raiz = new int[tam];
 	}
 
@@ -41,6 +43,9 @@ public class Kruskal
 		else
 		{
 			return raiz[vertice1] = BuscarRaiz(raiz[vertice1]);
+
+			return raiz[nodoActual] = BuscarRaiz(raiz[nodoActual]);
+
 		}
 	}
 
@@ -87,16 +92,18 @@ public class Kruskal
 		System.out.printf( "El costo minimo de la Solución al Grafo es : %d\n" , totalpeso);
 	}
 
-	public void creaAristas()
-	{
 
+	public void creaAristas(int matriz[][])
+	{
+		
 	}
 	public static void main(String args[])
 	{
-		grafo g = new grafo();
+		grafo G = new grafo();
 		G.LeeGrafo("entrada.dat");
  		G.escribematriz();
- 		Kruskal k = new Kruskal(g.getSize());
+ 		Kruskal k = new Kruskal(G.getSize());
+ 		k.creaAristas(G.getMatriz());
  		k.kruskal();
 	}
 
