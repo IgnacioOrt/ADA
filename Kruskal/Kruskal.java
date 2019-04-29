@@ -86,7 +86,7 @@ public class Kruskal
 
 		for( int i = 0 ; i < numAristas ; ++i )
 		{
-	        System.out.printf("( %d , %d ) : %d\n" , aristas[ i ].vertice1 , aristas[ i ].vertice2 , aristas[ i ].peso ); //Impresión de la Solución
+	        System.out.println("( "+((aristas[ i ].vertice1)+1)+" , "+((aristas[ i ].vertice2)+1)+") = "+aristas[ i ].peso ); //Impresión de la Solución
 		}
 
 		System.out.printf( "El costo minimo de la Solución al Grafo es : %d\n" , totalpeso);
@@ -142,7 +142,7 @@ public class Kruskal
 		System.out.println("\nConjunto de Vértices, Aristas y Pesos");
 		for (int i = 0; i < aristas.length; i++) 
 		{
-			System.out.printf("( %d , %d ) : %d\n" , aristas[ i ].vertice1 , aristas[ i ].vertice2 , aristas[ i ].peso ); 
+			System.out.printf("( %d , %d ) : %d\n" , aristas[ i ].vertice1 , aristas[ i ].vertice2 , aristas[ i ].peso); 
 		}
 	}
 	public static void main(String args[])
