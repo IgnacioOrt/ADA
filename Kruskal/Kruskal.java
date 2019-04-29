@@ -59,9 +59,9 @@ public class Kruskal
 		int numAristas= 0;
 		int totalpeso = 0;
 		
-		inicializar( vertices );//Inicializar cada Elemento(Nodo)
+		Inicializar( aristas.length );//Inicializar cada Elemento(Nodo)
 
-		for (int i = 0; i < aristas; i++) //Recorrer las aristas ordenadas por Peso
+		for (int i = 0; i < aristas.length; i++) //Recorrer las aristas ordenadas por Peso
 		{
 			vertice1 = arista[i].vertice1;
 			vertice2 = arista[i].vertice2;
