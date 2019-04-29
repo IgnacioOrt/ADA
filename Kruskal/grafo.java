@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 
 class grafo
@@ -10,8 +10,8 @@ class grafo
 	public void escribematriz()
 	{
 		int i,j;
-		System.out.println(" NODOS = "+NN);
-		System.out.println(" Matriz de Adyacencias");
+		System.out.println("NODOS = "+NN);
+		System.out.println("Matriz de Adyacencias\n");
 		System.out.print(" ");
 		for(i=0;i<NN;i++)System.out.print("  "+i);	
 			System.out.println();
@@ -26,7 +26,7 @@ class grafo
 	}
 
 
- public void LeeGrafo(String arch) //Lee archivo con los datos del grafo
+ public void leeGrafo(String arch) //Lee archivo con los datos del grafo
  {
 
  	FileInputStream fp;
@@ -40,7 +40,6 @@ class grafo
  		linea=f.readLine();
 
  		NN=Integer.parseInt(linea); 
- 		System.out.println(" Numero de Nodos: "+NN);
 		// Inicializamos la matriz con ceros
  		for (i=1;i<=NN;i++)
  			for(j=1;j<=NN; j++)
@@ -55,7 +54,7 @@ class grafo
  					token2 = Integer.parseInt(tokens.nextToken());
  					token3 = Integer.parseInt(tokens.nextToken());
 				              // escribimos en pantalla los datos leidos transformados en numeros
- 					System.out.println(token1+" "+token2);
+ 					
 				              // almacenamos en la matriz
  					M[token1][token2]=token3;
  					M[token2][token1]=token3;
@@ -83,11 +82,5 @@ class grafo
 
  	public int[][] getMatriz(){
  		return M;
- 	}
- 	public static void main(String[] ar)
- 	{
- 		grafo G=new grafo();
- 		G.LeeGrafo("entrada.dat");
- 		G.escribematriz();
  	}
  }
