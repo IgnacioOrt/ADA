@@ -21,7 +21,7 @@ public class Kruskal
 		}
 	}
 
-	public boolean ComparaRaices(int vertice1, int vertice2)
+	public boolean ComparaRaices(int vertice1, int vertice2)//Compara si entre los 2 nodos ingresados hay una raíz compartida
 	{
 		if( BuscarRaiz(vertice1) == BuscarRaiz(vertice2))
 		{
@@ -34,7 +34,7 @@ public class Kruskal
 		}
 	}
 
-	public int BuscarRaiz(int vertice1)
+	public int BuscarRaiz(int vertice1)//Busca El Vértice RAIZ del Vértice que se ingresa
 	{
 		if( vertice1 == raiz[vertice1] )
 		{
@@ -47,7 +47,7 @@ public class Kruskal
 		}
 	}
 
-	public void Unir(int vertice1, int vertice2)
+	public void Unir(int vertice1, int vertice2)//Asigna una nueva Relación entre los 2 vértices ingresados
 	{
 		raiz[BuscarRaiz(vertice1)] = BuscarRaiz(vertice2); 
 	}
@@ -70,6 +70,7 @@ public class Kruskal
 			{
 				totalpeso += peso; //Incrementa el peso Total del Resultado Final
 				Unir(vertice1,vertice2);
+				 //????[ numAristas++ ] = arista[ i ]; 
 
 			}
 		}
@@ -84,7 +85,7 @@ public class Kruskal
 
 		for( int i = 0 ; i < numAristas ; ++i )
 		{
-	        System.out.printf("( %d , %d ) : %d\n" , ??[ i ].vertice1 , ??[ i ].vertice2 , ??[ i ].peso ); //Impresión de la Solución
+	        //System.out.printf("( %d , %d ) : %d\n" , ??[ i ].vertice1 , ??[ i ].vertice2 , ??[ i ].peso ); //Impresión de la Solución
 		}
 
 		System.out.printf( "El costo minimo de la Solución al Grafo es : %d\n" , totalpeso);
