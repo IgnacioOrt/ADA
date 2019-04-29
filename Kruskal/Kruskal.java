@@ -3,7 +3,11 @@ import java.io.*;
 
 public class Kruskal
 {	
-
+	int[] raiz;
+	public Kruskal(int tam)
+	{
+		raiz = new int[tam];
+	}
 	public void Inicializar(int n)
 	{
 		for(int i=0; i < n; i++)
@@ -58,12 +62,17 @@ public class Kruskal
 
 	}
 
+	public void creaAristas()
+	{
 
+	}
 	public static void main(String args[])
 	{
-			grafo g = new grafo();
-
-			kruskal();
+		grafo g = new grafo();
+		G.LeeGrafo("entrada.dat");
+ 		G.escribematriz();
+ 		Kruskal k = new Kruskal(g.getSize());
+ 		k.kruskal();
 	}
 
 }
