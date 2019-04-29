@@ -8,4 +8,8 @@ class arista
 		vertice2 = v2;
 		peso = p;
 	}
+	public void escribeArista()
+	{
+		System.out.println("Vertice 1: " + vertice1 + " Vertice 2: " + vertice2 + " Peso: " + peso);
+	}
 }

@@ -3,12 +3,13 @@ import java.io.*;
 
 public class Kruskal
 {	
-
+	int tam;
 	int[] raiz;
 	arista[] aristas;
 	public Kruskal(int tam)
-	{
-		aristas = new arista[tam];
+	{	
+		this.tam = tam;
+
 		raiz = new int[tam];
 	}
 
@@ -72,7 +73,53 @@ public class Kruskal
 
 	public void creaAristas(int matriz[][])
 	{
-		
+		arista temp;
+		int k = 0;
+		for (int i = 0; i < raiz.length; i++ ) {
+			for (int j = i + 1; j < raiz.length; j++) {
+				if (matriz[i][j] > 0) {
+					k++;
+				}
+			}
+		}
+		aristas = new arista[k];
+		k = 0;
+
+		for (int i = 0; i < raiz.length; i++ ) {
+			for (int j = i + 1; j < raiz.length; j++) {
+				if (matriz[i][j] > 0) {
+					temp = new arista(i,j,matriz[i][j]);
+					aristas[k] = temp;
+					k++;
+				}
+			}
+		}
+		ordenaAristas();
+	}
+
+	public void ordenaAristas()
+	{
+		int n = aristas.length;
+        arista temp;
+        for(int i=0; i < n; i++)
+        {
+            for(int j=1; j < (n-i); j++)
+            {
+                if(aristas[j-1].peso > aristas[j].peso)
+                {
+                    temp = aristas[j-1];
+                    aristas[j-1] = aristas[j];
+                    aristas[j] = temp;
+                }
+            }
+        }
+	}
+
+	public void printAristas()
+	{
+		for (int i = 0; i < aristas.length; i++) {
+			aristas[i].escribeArista();
+		}
 	}
 	public static void main(String args[])
 	{
@@ -81,6 +128,8 @@ public class Kruskal
  		G.escribematriz();
  		Kruskal k = new Kruskal(G.getSize());
  		k.creaAristas(G.getMatriz());
+ 		k.printAristas();
+
  		k.kruskal();
 	}
 
