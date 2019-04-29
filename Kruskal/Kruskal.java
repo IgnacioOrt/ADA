@@ -38,13 +38,11 @@ public class Kruskal
 	{
 		if( vertice1 == raiz[vertice1] )
 		{
-			return actual;
+			return vertice1;
 		}
 		else
 		{
 			return raiz[vertice1] = BuscarRaiz(raiz[vertice1]);
-
-			return raiz[nodoActual] = BuscarRaiz(raiz[nodoActual]);
 
 		}
 	}
