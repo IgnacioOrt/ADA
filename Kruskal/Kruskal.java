@@ -32,7 +32,7 @@ public class Kruskal
 		}
 		else
 		{
-			return Find( raiz [nodoActual] );
+			return raiz[nodoActual] = Find(raiz[nodoActual]);
 		}
 	}
 
