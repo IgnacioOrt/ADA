@@ -14,9 +14,9 @@ public class Kruskal
 		raiz = new int[tam];
 	}
 
-	public void Inicializar(int n)
+	public void Inicializar()
 	{
-		for(int i=0; i < n; i++)
+		for(int i=0; i < raiz.length; i++)
 		{
 			raiz[i] = i;
 		}
@@ -59,34 +59,34 @@ public class Kruskal
 		int numAristas= 0;
 		int totalpeso = 0;
 		
-		Inicializar( aristas.length );//Inicializar cada Elemento(Nodo)
+
+		Inicializar();//Inicializar cada Elemento(Nodo)
 
 		for (int i = 0; i < aristas.length; i++) //Recorrer las aristas ordenadas por Peso
 		{
-			vertice1 = arista[i].vertice1;
-			vertice2 = arista[i].vertice2;
-			peso = arista[i].peso;
+			vertice1 = aristas[i].vertice1;
+			vertice2 = aristas[i].vertice2;
 
 			if(!ComparaRaices(vertice1, vertice2))
 			{
-				totalpeso += peso; //Incrementa el peso Total del Resultado Final
+				totalpeso += aristas[i].peso; 
 				Unir(vertice1,vertice2);
-				 //????[ numAristas++ ] = arista[ i ]; 
+				aristas[ numAristas++ ] = aristas[ i ]; 
 
 			}
 		}
 
-		if( totalAristas- 1 != numAristas ) //NOMBRE DE LA VARIABLE??????
+		if( raiz.length- 1 != numAristas )
 		{
 	        System.out.println("\nERROR: No existe Solución válida para el grafo ingresado.");
 	        return;
 		}
 
-		System.out.println("La Solución Encontrada es: \n");
+		System.out.println("\nLa Solución Encontrada es:");
 
 		for( int i = 0 ; i < numAristas ; ++i )
 		{
-	        //System.out.printf("( %d , %d ) : %d\n" , ??[ i ].vertice1 , ??[ i ].vertice2 , ??[ i ].peso ); //Impresión de la Solución
+	        System.out.printf("( %d , %d ) : %d\n" , aristas[ i ].vertice1 , aristas[ i ].vertice2 , aristas[ i ].peso ); //Impresión de la Solución
 		}
 
 		System.out.printf( "El costo minimo de la Solución al Grafo es : %d\n" , totalpeso);
@@ -139,14 +139,22 @@ public class Kruskal
 
 	public void printAristas()
 	{
-		for (int i = 0; i < aristas.length; i++) {
-			aristas[i].escribeArista();
+		System.out.println("\nConjunto de Vértices, Aristas y Pesos");
+		for (int i = 0; i < aristas.length; i++) 
+		{
+			System.out.printf("( %d , %d ) : %d\n" , aristas[ i ].vertice1 , aristas[ i ].vertice2 , aristas[ i ].peso ); 
 		}
 	}
 	public static void main(String args[])
 	{
 		grafo G = new grafo();
-		G.LeeGrafo("entrada.dat");
+ 		Scanner s = new Scanner(System.in);
+ 		String archivo;
+
+ 		System.out.println("Deme nombre del Archivo <3 : ");
+ 		archivo = s.nextLine();
+
+ 		G.leeGrafo(archivo);
  		G.escribematriz();
  		Kruskal k = new Kruskal(G.getSize());
  		k.creaAristas(G.getMatriz());
