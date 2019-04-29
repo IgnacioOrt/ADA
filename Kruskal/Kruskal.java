@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Kruskal
 {	
-	
+
 	public void Inicializar(int n)
 	{
 		for(int i=0; i < n; i++)
@@ -12,7 +12,7 @@ public class Kruskal
 		}
 	}
 
-	public boolean ComparaRaices(int nodoActual, int odoFuturo)
+	public boolean ComparaRaices(int nodoActual, int nodoFuturo)
 	{
 		if( BuscarRaiz( nodoActual, nodoFuturo ))
 		{
@@ -44,9 +44,26 @@ public class Kruskal
 		raiz[ raizX ] = raizY;
 	}
 
+	public void kruskal()
+	{
+		int vertice1, vertice2;
+		int totalAristas= 0;
+		int total = 0;
+		
+		inicializar( vertices );//Inicializar cada Elemento(Nodo)
+
+		
+
+
+
+	}
+
 
 	public static void main(String args[])
 	{
+			grafo g = new grafo();
 
+			kruskal();
 	}
+
 }
