@@ -14,22 +14,25 @@ class monedas
 	}
 	public void leerMonedas()
 	{
-		System.out.println("Escriba las denomicaciones de las monedas");
+		
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < denominaciones.length; i++)
 		{
+			System.out.println("Escriba la denomicacion de la moneda ["+i+"]");
 			denominaciones[i] = sc.nextInt();
 		}
 	}
 	public void escribirDenominaciones()
 	{
+		System.out.println("\n");
 		for (int i = 0 ; i < denominaciones.length; i++)
 		{
-			System.out.print(" $" + denominaciones[i]);
+			System.out.print("Moneda ["+i+"]: $" + denominaciones[i]+"\n");
 		}
 	}
 	public void escribirCambio()
 	{
+		System.out.println("\n");
 		for (int i = cambio.length - 1; i >= 0 ; i--)
 		{
 			System.out.println(cambio[i] + " monedas de " + denominaciones[i]);
@@ -40,7 +43,6 @@ class monedas
 		int i = this.denominaciones.length - 1;
 		while ( cant != 0) 
 		{
-			System.out.println(i);
 			cambio[i] = cant / denominaciones[i];
 			cant = cant % denominaciones[i];
 			if (cant < denominaciones[0])
@@ -85,14 +87,20 @@ class monedas
 		int tam;
 		int cant;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Cuantas denominaciones estaran disponibles: ");
+
+		System.out.println("********************************");
+        System.out.println("********Programa Monedas********");
+        System.out.println("***********ILIMITADO************");
+        System.out.println("********************************\n");
+		System.out.print("Ingrese el numero de denominaciones disponibles: ");
 		tam = sc.nextInt();
+
 		if (tam > 0)
 		{
 			monedas m = new monedas(tam);
 			m.leerMonedas();	
 			m.ordenar();
-			System.out.print("\nLas monedas ingresadas son: ");
+			System.out.print("\nLas monedas ingresadas Ordenadamente son: ");
 			m.escribirDenominaciones();
 			System.out.print("\nIngrese la cantidad para pagar: ");
 			cant = sc.nextInt();
@@ -111,7 +119,7 @@ class monedas
 				System.out.print("\nNo se puede dar cambio de la cantidad ingresada");
 			}
 		}else{
-			System.out.println("Ingrese una cantidad mayor a cero");
+			System.out.println("\nIngrese una cantidad mayor a cero");
 		}
 	}
 }

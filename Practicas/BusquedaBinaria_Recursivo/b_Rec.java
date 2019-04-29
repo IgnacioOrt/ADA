@@ -93,19 +93,36 @@ class b_Rec
 	{
 		Scanner sc = new Scanner(System.in);
 		int n, dato;
-		System.out.print("Da el tamano del arreglo: ");
+
+        System.out.println("********************************");
+        System.out.println("********Busqueda Binaria********");
+        System.out.println("***********RECURSIVA************");
+        System.out.println("********************************\n");
+		System.out.print("Ingrese el tamano del arreglo: ");
 		n = sc.nextInt();
 		int [] arr = new int[n];
-		System.out.println("Introduce los datos del arreglo");
+		System.out.println("Introduzca los datos del arreglo");
 		for (int i = 0; i < n ; i++)
 		{
 			System.out.print(" A["+ (i + 1) + "] = ");
 			arr[i] = sc.nextInt();
 		}
-		quickSortIterative(arr, 0, n-1); 	
-		System.out.println("Ingresa el dato a buscar en el arreglo: ");
+		quickSortIterative(arr, 0, n-1);
+
+        System.out.println("\nArreglo Ordenado mediante QUICKSORT:\n");
+        for (int i = 0; i < n ; i++)
+        {
+            System.out.print(" A["+ (i + 1) + "] = "+arr[i]+"\n");
+        }
+
+		System.out.println("\nIngresa el dato a buscar en el arreglo: ");
 		dato = sc.nextInt();
+
         int indiceDelElementoBuscado = busquedaBinariaRecursiva(arr, dato, 0, arr.length - 1);
-		System.out.println("[Recursivo] -- El elemento buscado (" + String.valueOf(dato) + ") se encuentra en el index " + indiceDelElementoBuscado);
-	}
+
+        if (indiceDelElementoBuscado >= 0)
+		  System.out.println("\nEl elemento buscado (" + String.valueOf(dato) + ") se encuentra en la posicion " + (indiceDelElementoBuscado+1));
+	    else
+            System.out.println("\nERROR, elemento no encontrado en el Arreglo");  
+    }
 }

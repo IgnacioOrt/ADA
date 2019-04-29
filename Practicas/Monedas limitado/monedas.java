@@ -29,20 +29,23 @@ class monedas
 	}
 	public void escribirCantidades()
 	{
+		System.out.println("\n");
 		for (int i = 0 ; i < cantidad.length; i++)
 		{
-			System.out.print(" " + cantidad[i]);
+			System.out.print("Moneda ["+i+"]: " + cantidad[i]+"\n");
 		}
 	}
 	public void escribirDenominaciones()
 	{
+		System.out.println("\n");
 		for (int i = 0 ; i < denominaciones.length; i++)
 		{
-			System.out.print(" $" + denominaciones[i]);
+			System.out.print("Moneda ["+i+"]: $" + denominaciones[i]+"\n");
 		}
 	}
 	public void escribirCambio()
 	{
+		System.out.println("\n");
 		for (int i = cambio.length - 1; i >= 0 ; i--)
 		{
 			System.out.println(cambio[i] + " monedas de " + denominaciones[i]);
@@ -116,19 +119,24 @@ class monedas
 		int tam;
 		int cant;
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Cuantas denominaciones estaran disponibles: ");
+		System.out.println("********************************");
+        System.out.println("********Programa Monedas********");
+        System.out.println("************LIMITADO************");
+        System.out.println("********************************\n");
+		System.out.print("Ingrese el numero de denominaciones disponibles: ");
 		tam = sc.nextInt();
 		if (tam > 0)
 		{
 			monedas m = new monedas(tam);
 			m.leerMonedas();	
 			m.ordenar();
-			System.out.print("\nLas monedas ingresadas son: ");
+			System.out.print("\nLas monedas ingresadas Ordenadamente son: ");
 			m.escribirDenominaciones();
 			System.out.print("\nNumero de monedas por denominacion: ");
 			m.escribirCantidades();
 			System.out.print("\nIngrese la cantidad para pagar: ");
 			cant = sc.nextInt();
+
 			if (m.verifMayorValor(cant) == 1)
 			{
 				int cambio = m.calcularCambio(cant);
@@ -144,7 +152,7 @@ class monedas
 				System.out.print("\nNo se puede dar cambio de la cantidad ingresada");
 			}
 		}else{
-			System.out.println("Ingrese una cantidad mayor a cero");
+			System.out.println("\nIngrese una cantidad mayor a cero");
 		}
 	}
 }
