@@ -3,6 +3,7 @@ import java.io.*;
 
 public class Kruskal
 {	
+
 	int[] raiz;
 	arista[] aristas;
 	public Kruskal(int tam)
@@ -10,6 +11,7 @@ public class Kruskal
 		aristas = new arista[tam];
 		raiz = new int[tam];
 	}
+
 	public void Inicializar(int n)
 	{
 		for(int i=0; i < n; i++)
@@ -58,7 +60,10 @@ public class Kruskal
 		
 		inicializar( vertices );//Inicializar cada Elemento(Nodo)
 
-		
+		for (int i = 0; i < aristas; i++) //Recorrer las aristas ordenadas por Peso
+		{
+			vertice1 = 
+		}
 
 
 
