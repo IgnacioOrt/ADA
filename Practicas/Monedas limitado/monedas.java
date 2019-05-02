@@ -58,7 +58,8 @@ class monedas
 		while ( cant != 0) 
 		{
 			temp = cant / denominaciones[i];
-			if (cantidad[i] >= temp) {
+			if (cantidad[i] >= temp) 
+			{
 				cambio[i] = cant / denominaciones[i];
 				cant = cant % denominaciones[i];
 			}else{
@@ -156,3 +157,4 @@ class monedas
 		}
 	}
 }
+//50, 5, 100, 1, 10, 5, 5, 5, 1, 3
